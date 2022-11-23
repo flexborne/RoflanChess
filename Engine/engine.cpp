@@ -104,12 +104,11 @@ Engine::BoardStateCache::BoardStateCache() noexcept
 }
 
 Engine::BoardStateCache::~BoardStateCache() = default;
-
-Engine::Engine() noexcept = default;
-
 Engine::BoardStateCache::BoardStateCache(const BoardStateCache& other) = default;
 
+Engine::Engine() noexcept = default;
 Engine::~Engine() = default;
+
 
 auto Engine::generateAllPseudoLegalMoves(const std::unique_ptr<BoardStateCache>& boardState, Side::e side) const noexcept -> std::set<Move>
 {
