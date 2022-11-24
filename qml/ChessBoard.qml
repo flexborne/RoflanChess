@@ -1,10 +1,12 @@
 import QtQuick 2.15
 
+import "Constants.js" as Constants
+
 Item {
     id: gameField
 
 
-    signal pieceClicked(var availableMoves)
+    signal pieceClicked(var sourceSquare, var availableMoves)
     signal pieceReleased()
 
     /// @return move, if it's available
@@ -20,9 +22,8 @@ Item {
     BackgroundBoard {
         id: board
 
-        //anchors.fill: parent
-        width: 700
-        height: 700
+        width: Constants.BOARD_WIDTH
+        height: Constants.BOARD_HEIGHT
     }
 
     PiecesBoard {

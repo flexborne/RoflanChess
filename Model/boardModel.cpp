@@ -79,7 +79,7 @@ bool BoardModel::setData(const QModelIndex&, const QVariant& value, int role)
             beginResetModel();
             defer([this] {
                 endResetModel();
-                emit sideToMoveUpdated();
+                emit gamePropertiesUpdated();
             });
 
             boardManager->performMove(qvariant_cast<Move>(value));

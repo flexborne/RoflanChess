@@ -20,5 +20,7 @@
         <file>qml/ChessBoard.qml</file>
         <file>sounds/victorySong.mp3</file>
         <file>sounds/victorySong.wav</file>
+        <file>qml/Constants.js</file>
+        <file>qml/Game.qml</file>
     </qresource>
 </RCC>

@@ -1,12 +1,14 @@
 import QtQuick 2.15
 
+import "Constants.js" as Constants
+
 GridView {
     id: root
 
-    model: 64
+    model: Constants.N_CELLS
 
-    cellHeight: height/8
-    cellWidth: width/8
+    cellHeight: height/Constants.BOARD_SIZE
+    cellWidth: width/Constants.BOARD_SIZE
 
     delegate: Cell {
             id: cell
@@ -15,25 +17,32 @@ GridView {
             height: root.cellHeight
 
             Rectangle {
-                id: foreground
+                id: highlight
 
                 anchors.fill: parent
 
-                opacity: 0.8
-                color: "#6495ed"
+                opacity: Constants.BACKGROUND_OPACITY
+                color: Constants.DEFAULT_HIGHLIGHT_COLOR
                 visible: false
 
                 Connections {
                     target: gameField
 
-                    function onPieceClicked(availableMoves) {
+                    function onPieceClicked(sourceSquare, availableMoves) {
                         if (isMoveAvailable(index, availableMoves)) {
-                            foreground.visible = true
+                            highlight.visible = true
+                        }
+
+                        if (index === sourceSquare) {
+                            highlight.color = Constants.SOURCE_SQ_HIGHLIGHT_COLOR
+                            highlight.visible = true
+
                         }
                     }
 
                     function onPieceReleased() {
-                        foreground.visible = false
+                        highlight.color = Constants.DEFAULT_HIGHLIGHT_COLOR
+                        highlight.visible = false
                     }
                 }
             }

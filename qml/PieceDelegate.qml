@@ -1,5 +1,7 @@
 import QtQuick 2.15
 
+import "Constants.js" as Constants
+
 import enum_side 1.0
 
 Rectangle {
@@ -10,12 +12,12 @@ Rectangle {
     property var side
 
     function positionOfCenter() {
-        return Math.floor(y/height + 1/2)*8 + Math.floor(x/width + 1/2)
+        return Math.floor(y/height + 1/2)*Constants.BOARD_SIZE + Math.floor(x/width + 1/2)
     }
 
     function updatePositionFromModel() {
-        x = Math.floor(position % 8)*width
-        y = Math.floor(position / 8)*height
+        x = Math.floor(position % Constants.BOARD_SIZE)*width
+        y = Math.floor(position / Constants.BOARD_SIZE)*height
     }
 
     Image {
@@ -35,7 +37,7 @@ Rectangle {
             parent.z = 1    // focus
 
             if (parent.side === sideToMove) {
-                gameField.pieceClicked(availableMoves)
+                gameField.pieceClicked(parent.positionOfCenter(), availableMoves)
             }
 
         }

@@ -35,7 +35,7 @@ public:
     Q_INVOKABLE GameStatus::e getGameStatus() const;
 
 signals:
-    void sideToMoveUpdated();
+    void gamePropertiesUpdated();
 
 private:
     enum ChessBoardModelRoles {
