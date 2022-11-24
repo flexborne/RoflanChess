@@ -7,4 +7,5 @@ Qml/c++ chess using bitboards
 
 # Screenshots
 
-![image](https://user-images.githubusercontent.com/99747418/203440979-aee14321-6a7e-4723-bae2-b64b047eabcf.png)
+![image](https://user-images.githubusercontent.com/99747418/203674863-a878799a-e252-482e-8ddf-54e0142b9c22.png)
+![image](https://user-images.githubusercontent.com/99747418/203675025-ae43c098-aeed-43fc-add8-d592a54ef8cb.png)
